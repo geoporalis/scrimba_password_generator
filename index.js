@@ -21,27 +21,33 @@ let passtwo;
 
 generateBtn.addEventListener("click", generateRandomPassword);
 passoneBtn.addEventListener("click",
+    function(event) {
+        copyTextToClipboard(passone);
+    }                            
 // () => {console.log(passone);}
-    navigator.clipboard.writeText(passone).then(
-        function() {
-            console.log('Async: Copying to clipboard was successful!');
-        }, 
-        function(err) {
-            // console.error('Async: Could not copy text: ');//, err);
-        }
-    )
+    // navigator.clipboard.writeText(passone).then(
+    //     function() {
+    //         console.log('Async: Copying to clipboard was successful!');
+    //     }, 
+    //     function(err) {
+    //         // console.error('Async: Could not copy text: ');//, err);
+    //     }
+    // )
 );
 
 passtwoBtn.addEventListener("click", 
+    function(event) {
+        copyTextToClipboard(passtwo);
+    }                                         
 // () => {console.log(passtwo);}
-    navigator.clipboard.writeText(passtwo).then(
-        function() {
-            console.log('Async: Copying to clipboard was successful!');
-        }, 
-        function(err) {
-            // console.error('Async: Could not copy text: ');//, err);
-        }
-    )
+    // navigator.clipboard.writeText(passtwo).then(
+    //     function() {
+    //         console.log('Async: Copying to clipboard was successful!');
+    //     }, 
+    //     function(err) {
+    //         // console.error('Async: Could not copy text: ');//, err);
+    //     }
+    // )
 );
 
 const passwordLength = 15;
@@ -94,5 +100,17 @@ function getCharacterArray() {
     
     return characters;
 }
+
+    function copyTextToClipboard(text) {
+        // if (!navigator.clipboard) {
+        //     fallbackCopyTextToClipboard(text);
+        //     return;
+        // }
+        navigator.clipboard.writeText(text).then(function() {
+            console.log('Async: Copying to clipboard was successful!');
+        }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    }
 
 function esc(str){ return new Option(str).innerHTML; }
