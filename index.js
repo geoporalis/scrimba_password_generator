@@ -108,8 +108,10 @@ function getCharacterArray() {
         // }
         navigator.clipboard.writeText(text).then(function() {
             console.log('Async: Copying to clipboard was successful!');
+            alert("Copied to clipboard: " + text);
         }, function(err) {
             console.error('Async: Could not copy text: ', err);
+            alert("Error during copying: " + text);
         });
     }
 
