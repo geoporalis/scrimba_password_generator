@@ -1,6 +1,5 @@
 // const chars = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 // "/"];
-// console.log(chars.length, chars)
 
 const bigletters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 const smallletters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -24,30 +23,12 @@ passoneBtn.addEventListener("click",
     function(event) {
         copyTextToClipboard(passone);
     }                            
-// () => {console.log(passone);}
-    // navigator.clipboard.writeText(passone).then(
-    //     function() {
-    //         console.log('Async: Copying to clipboard was successful!');
-    //     }, 
-    //     function(err) {
-    //         // console.error('Async: Could not copy text: ');//, err);
-    //     }
-    // )
 );
 
 passtwoBtn.addEventListener("click", 
     function(event) {
         copyTextToClipboard(passtwo);
     }                                         
-// () => {console.log(passtwo);}
-    // navigator.clipboard.writeText(passtwo).then(
-    //     function() {
-    //         console.log('Async: Copying to clipboard was successful!');
-    //     }, 
-    //     function(err) {
-    //         // console.error('Async: Could not copy text: ');//, err);
-    //     }
-    // )
 );
 
 const passwordLength = 15;
@@ -75,11 +56,8 @@ function generateRandomPassword() {
         
     }
     
-    
     passoneBtn.innerHTML = esc(passone);
     passtwoBtn.innerHTML = esc(passtwo);
-    
-    console.log(passone,passtwo);
 }
 
 function getCharacterArray() {
@@ -107,10 +85,10 @@ function getCharacterArray() {
         //     return;
         // }
         navigator.clipboard.writeText(text).then(function() {
-            console.log('Async: Copying to clipboard was successful!');
+            // console.log('Async: Copying to clipboard was successful!');
             alert("Copied to clipboard: " + text);
         }, function(err) {
-            console.error('Async: Could not copy text: ', err);
+            // console.error('Async: Could not copy text: ', err);
             alert("Error during copying: " + text);
         });
     }
