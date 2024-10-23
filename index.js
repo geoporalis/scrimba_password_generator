@@ -7,6 +7,10 @@ const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const specials= ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
 
+const hint_err = "Hint!     please review yor settings";
+const hint_copy = "Hint!     click on apassword to copy it to the clipboard";
+const hint_empty = "";
+
 let generateBtn = document.getElementById("generate-btn");
 let passoneBtn = document.getElementById("passone-btn");
 let passtwoBtn = document.getElementById("passtwo-btn");
@@ -15,6 +19,7 @@ let smallChk = document.getElementById("small-ipt");
 let bigChk = document.getElementById("big-ipt");
 let numChk = document.getElementById("num-ipt");
 let charChk = document.getElementById("char-ipt");
+let hintTxt = document.getElementById("hint");
 let passone;
 let passtwo;
 
@@ -24,14 +29,17 @@ passoneBtn.addEventListener("click",
         copyTextToClipboard(passone);
     }                            
 );
-
 passtwoBtn.addEventListener("click", 
     function(event) {
         copyTextToClipboard(passtwo);
     }                                         
 );
 
-const passwordLength = 15;
+displayHint(hint_empty);
+
+function displayHint(text){
+    hintTxt.innerHTML = text;
+}
 
 function getRandomCharacter(characters) {
     
@@ -44,8 +52,9 @@ function generateRandomPassword() {
     const passwordLength = (lengthIpt.value !== "") ? lengthIpt.value : lengthIpt.placeholder;
         
     if(characters.length < 9){
-        passone = 'please review';
-        passtwo = 'your selection';
+        passone = '';
+        passtwo = '';
+        displayHint(hint_err);
     } else {
         let randomPassword = ""
         for (let i = 0; i < passwordLength*2; i++) {
@@ -53,11 +62,12 @@ function generateRandomPassword() {
         }
         passone = randomPassword.slice(0,passwordLength);
         passtwo = randomPassword.slice(passwordLength);
-        
+        displayHint(hint_copy);
     }
     
     passoneBtn.innerHTML = esc(passone);
     passtwoBtn.innerHTML = esc(passtwo);
+    
 }
 
 function getCharacterArray() {

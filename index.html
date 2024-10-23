@@ -3,35 +3,53 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <div>
-            <h1>Generate a</h1>
-            <h2>random password</h2>
-            <h3>Never use an insecure password again.</h3>
-        </div>
-        
-        <div>
-            <button id="generate-btn">Generate password</button> 
-        </div>
-        <div>
-            <input type="number" id="length-ipt" name="quantity" min="8" max="16" placeholder="15">
-            <label for="length">password length (between 8 and 16)</label>
-        </div>
-        <div>
-            <input type="checkbox" id="small-ipt" name="checkbox1" checked>
-            <label for="checkbox1"> use small letters</label>
-            <input type="checkbox" id="big-ipt" name="checkbox2" checked>
-            <label for="checkbox2"> use capital letters</label>
-            <input type="checkbox" id="num-ipt" name="checkbox3" checked>
-            <label for="checkbox3"> use numbers</label>
-            <input type="checkbox" id="char-ipt" name="checkbox4" checked>
-            <label for="checkbox4"> use special characters</label>
-        </div>
-        <div>
-            <button id="passone-btn" class="show-pass"></button>
-            <button id="passtwo-btn" class="show-pass"></button>
-        </div>
-        
+        <div class="main">
+            <div >
+                <h1>Generate a</h1>
+                <h2>random password</h2>
+                <h3>Never use an insecure password again.</h3>
+            </div>
+            
+            <div>
+                <button id="generate-btn">Generate password</button> 
+            </div>
+            
+            <div id="settings" class="border_blue">
+                <div>
+                    <input type="number" id="length-ipt" name="quantity" min="8" max="16" placeholder="15" value="15">
+                    <label for="length">password length (between 8 and 16)</label>
+                </div>
+                <div class="border_red flex_row">
+                    <div class="flex_column checkbox_column" >
+                        <label for="checkbox1">
+                            <input type="checkbox" id="small-ipt" name="checkbox1">
+                            Lowercase (abc)
+                        </label>
+                        <label for="checkbox2">
+                            <input type="checkbox" id="big-ipt" name="checkbox2" checked>
+                            Uppercase (ABC)
+                        </label>
+                    </div>
+                    <div class="flex_column checkbox_column">
+                        <label for="checkbox3">
+                            <input type="checkbox" id="num-ipt" name="checkbox3" checked>
+                            Numbers (123)
+                        </label>
+                        <label for="checkbox4">
+                            <input type="checkbox" id="char-ipt" name="checkbox4" checked>
+                            Randomized symbols (!#$)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="pass-btns">
+                <button id="passone-btn" class="show-pass"></button>
+                <button id="passtwo-btn" class="show-pass"></button>
+            </div>
+            <div>
+                <p id="hint">Hint! ... loading hint ... </p>
+            </div>
+        </div>        
         <script src="index.js"></script>
-        
     </body>
 </html>
